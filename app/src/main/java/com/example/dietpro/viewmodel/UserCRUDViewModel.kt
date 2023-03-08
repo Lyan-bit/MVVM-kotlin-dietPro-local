@@ -128,26 +128,6 @@ class UserCRUDViewModel constructor(context: Context): ViewModel() {
         currentUser = vo
     }
 
-    fun searchByUseruserName(userNamex: String): ArrayList<User> {
-        currentUsers = listUser()
-        var res = ArrayList<User>()
-        for (x in currentUsers.indices) {
-            val vo: UserVO = currentUsers[x]
-            val itemx = User.createByPKUser(vo.getUserName())
-            itemx.userName = vo.getUserName()
-            itemx.gender = vo.getGender()
-            itemx.heights = vo.getHeights()
-            itemx.weights = vo.getWeights()
-            itemx.activityLevel = vo.getActivityLevel()
-            itemx.age = vo.getAge()
-            itemx.targetCalories = vo.getTargetCalories()
-            itemx.totalConsumedCalories = vo.getTotalConsumedCalories()
-            itemx.bmr = vo.getBmr()
-            res.add(itemx)
-        }
-        return res
-    }
-
     fun findTargetCalories(user: User): Double {
         var result = 0.0
         user.targetCalories  = user.calculateTargetCalories()
