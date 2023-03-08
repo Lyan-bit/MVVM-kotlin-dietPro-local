@@ -68,7 +68,9 @@ class MealBean(c: Context) {
 	         else {
 	               errors.add("mealId cannot be empty")
 	         }
-	          if (mealName != "") {}
+	          if (mealName != "") {
+		  //ok
+		  }
 	         else {
 	               errors.add("mealName cannot be empty")
 	         }
