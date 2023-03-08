@@ -285,18 +285,19 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
         database.delete(MealTABLENAME, "mealId = ?", args)
     }
 
+    var mealId = "mealId = ?"
     fun addUsereatsMeal(userName: String, mealId: String) {
         database = writableDatabase
         val wr = ContentValues(1)
         wr.put(MealCOLS.get(MealCOLUSERNAME), userName)
         val args = arrayOf(mealId)
-        database.update(MealTABLENAME, wr, "mealId = ?", args)
+        database.update(MealTABLENAME, wr, mealId, args)
     }
     fun removeUsereatsMeal(userName: String, mealId: String) {
         database = writableDatabase
         val wr = ContentValues(1)
         wr.put(MealCOLS.get(MealCOLUSERNAME), "NULL")
         val args = arrayOf(mealId)
-        database.update(MealTABLENAME, wr, "mealId = ?", args)
+        database.update(MealTABLENAME, wr, mealId, args)
     }
 }
