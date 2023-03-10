@@ -196,6 +196,11 @@ class MealBean(c: Context) {
     fun isAddUsereatsMealError(): Boolean {
 	    //if statement
         errors.clear()
+	if (userName != "") {
+	//ok
+	}
+	else
+	errors.add(userName + checkParameter)
         return errors.size > 0
     }
 
@@ -206,6 +211,11 @@ class MealBean(c: Context) {
 
    fun isRemoveUsereatsMealError(): Boolean {
         errors.clear()
+	if (mealId != "") {
+	//ok
+	}
+	else
+	errors.add(mealId + checkParameter)
         return errors.size > 0
     }
 
