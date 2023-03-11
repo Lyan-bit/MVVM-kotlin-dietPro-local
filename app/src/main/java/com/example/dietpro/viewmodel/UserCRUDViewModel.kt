@@ -1,9 +1,9 @@
 package com.example.dietpro.viewmodel
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.dietpro.ModelPreferencesManager
+import com.example.dietpro.model.Meal
 import com.example.dietpro.model.User
 import com.example.dietpro.model.UserVO
 import java.util.ArrayList
