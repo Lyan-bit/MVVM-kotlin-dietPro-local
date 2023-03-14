@@ -61,15 +61,7 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
             database.query(MealTABLENAME, MealCOLS, null, null, null, null, null)
         cursor.moveToFirst()
         while (!cursor.isAfterLast()) {
-            val mealvo = MealVO()
-            mealvo.setMealId(cursor.getString(MealCOLMEALID))
-            mealvo.setMealName(cursor.getString(MealCOLMEALNAME))
-            mealvo.setCalories(cursor.getDouble(MealCOLCALORIES))
-            mealvo.setDates(cursor.getString(MealCOLDATES))
-            mealvo.setImages(cursor.getString(MealCOLIMAGES))
-            mealvo.setAnalysis(cursor.getString(MealCOLANALYSIS))
-            mealvo.setUserName(cursor.getString(MealCOLUSERNAME))
-            res.add(mealvo)
+            res.add(setData(cursor))
             cursor.moveToNext()
         }
         cursor.close()
@@ -78,15 +70,7 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
     fun createMeal(mealvo: MealVO) {
         database = writableDatabase
-        val wr = ContentValues(MealNUMBERCOLS)
-        wr.put(MealCOLS[MealCOLMEALID], mealvo.getMealId())
-        wr.put(MealCOLS[MealCOLMEALNAME], mealvo.getMealName())
-        wr.put(MealCOLS[MealCOLCALORIES], mealvo.getCalories())
-        wr.put(MealCOLS[MealCOLDATES], mealvo.getDates())
-        wr.put(MealCOLS[MealCOLIMAGES], mealvo.getImages())
-        wr.put(MealCOLS[MealCOLANALYSIS], mealvo.getAnalysis())
-        wr.put(MealCOLS[MealCOLUSERNAME], mealvo.getUserName())
-        database.insert(MealTABLENAME, MealCOLS[1], wr)
+        database.insert(MealTABLENAME, MealCOLS[1], putData(mealvo))
     }
 
     fun searchByMealmealId(value: String): ArrayList<MealVO> {
@@ -99,15 +83,7 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
         )
         cursor.moveToFirst()
         while (!cursor.isAfterLast()) {
-            val mealvo = MealVO()
-            mealvo.setMealId(cursor.getString(MealCOLMEALID))
-            mealvo.setMealName(cursor.getString(MealCOLMEALNAME))
-            mealvo.setCalories(cursor.getDouble(MealCOLCALORIES))
-            mealvo.setDates(cursor.getString(MealCOLDATES))
-            mealvo.setImages(cursor.getString(MealCOLIMAGES))
-            mealvo.setAnalysis(cursor.getString(MealCOLANALYSIS))
-            mealvo.setUserName(cursor.getString(MealCOLUSERNAME))
-            res.add(mealvo)
+            res.add(setData(cursor))
             cursor.moveToNext()
         }
         cursor.close()
@@ -124,15 +100,7 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
         )
         cursor.moveToFirst()
         while (!cursor.isAfterLast()) {
-            val mealvo = MealVO()
-            mealvo.setMealId(cursor.getString(MealCOLMEALID))
-            mealvo.setMealName(cursor.getString(MealCOLMEALNAME))
-            mealvo.setCalories(cursor.getDouble(MealCOLCALORIES))
-            mealvo.setDates(cursor.getString(MealCOLDATES))
-            mealvo.setImages(cursor.getString(MealCOLIMAGES))
-            mealvo.setAnalysis(cursor.getString(MealCOLANALYSIS))
-            mealvo.setUserName(cursor.getString(MealCOLUSERNAME))
-            res.add(mealvo)
+            res.add(setData(cursor))
             cursor.moveToNext()
         }
         cursor.close()
@@ -149,15 +117,7 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
         )
         cursor.moveToFirst()
         while (!cursor.isAfterLast()) {
-            val mealvo = MealVO()
-            mealvo.setMealId(cursor.getString(MealCOLMEALID))
-            mealvo.setMealName(cursor.getString(MealCOLMEALNAME))
-            mealvo.setCalories(cursor.getDouble(MealCOLCALORIES))
-            mealvo.setDates(cursor.getString(MealCOLDATES))
-            mealvo.setImages(cursor.getString(MealCOLIMAGES))
-            mealvo.setAnalysis(cursor.getString(MealCOLANALYSIS))
-            mealvo.setUserName(cursor.getString(MealCOLUSERNAME))
-            res.add(mealvo)
+            res.add(setData(cursor))
             cursor.moveToNext()
         }
         cursor.close()
@@ -174,15 +134,7 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
         )
         cursor.moveToFirst()
         while (!cursor.isAfterLast()) {
-            val mealvo = MealVO()
-            mealvo.setMealId(cursor.getString(MealCOLMEALID))
-            mealvo.setMealName(cursor.getString(MealCOLMEALNAME))
-            mealvo.setCalories(cursor.getDouble(MealCOLCALORIES))
-            mealvo.setDates(cursor.getString(MealCOLDATES))
-            mealvo.setImages(cursor.getString(MealCOLIMAGES))
-            mealvo.setAnalysis(cursor.getString(MealCOLANALYSIS))
-            mealvo.setUserName(cursor.getString(MealCOLUSERNAME))
-            res.add(mealvo)
+            res.add(setData(cursor))
             cursor.moveToNext()
         }
         cursor.close()
@@ -199,15 +151,7 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
         )
         cursor.moveToFirst()
         while (!cursor.isAfterLast()) {
-            val mealvo = MealVO()
-            mealvo.setMealId(cursor.getString(MealCOLMEALID))
-            mealvo.setMealName(cursor.getString(MealCOLMEALNAME))
-            mealvo.setCalories(cursor.getDouble(MealCOLCALORIES))
-            mealvo.setDates(cursor.getString(MealCOLDATES))
-            mealvo.setImages(cursor.getString(MealCOLIMAGES))
-            mealvo.setAnalysis(cursor.getString(MealCOLANALYSIS))
-            mealvo.setUserName(cursor.getString(MealCOLUSERNAME))
-            res.add(mealvo)
+            res.add(setData(cursor))
             cursor.moveToNext()
         }
         cursor.close()
@@ -224,15 +168,7 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
         )
         cursor.moveToFirst()
         while (!cursor.isAfterLast()) {
-            val mealvo = MealVO()
-            mealvo.setMealId(cursor.getString(MealCOLMEALID))
-            mealvo.setMealName(cursor.getString(MealCOLMEALNAME))
-            mealvo.setCalories(cursor.getDouble(MealCOLCALORIES))
-            mealvo.setDates(cursor.getString(MealCOLDATES))
-            mealvo.setImages(cursor.getString(MealCOLIMAGES))
-            mealvo.setAnalysis(cursor.getString(MealCOLANALYSIS))
-            mealvo.setUserName(cursor.getString(MealCOLUSERNAME))
-            res.add(mealvo)
+            res.add(setData(cursor))
             cursor.moveToNext()
         }
         cursor.close()
@@ -249,15 +185,7 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
         )
         cursor.moveToFirst()
         while (!cursor.isAfterLast()) {
-            val mealvo = MealVO()
-            mealvo.setMealId(cursor.getString(MealCOLMEALID))
-            mealvo.setMealName(cursor.getString(MealCOLMEALNAME))
-            mealvo.setCalories(cursor.getDouble(MealCOLCALORIES))
-            mealvo.setDates(cursor.getString(MealCOLDATES))
-            mealvo.setImages(cursor.getString(MealCOLIMAGES))
-            mealvo.setAnalysis(cursor.getString(MealCOLANALYSIS))
-            mealvo.setUserName(cursor.getString(MealCOLUSERNAME))
-            res.add(mealvo)
+            res.add(setData(cursor))
             cursor.moveToNext()
         }
         cursor.close()
@@ -267,16 +195,8 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
     fun editMeal(mealvo: MealVO) {
         database = writableDatabase
-        val wr = ContentValues(MealNUMBERCOLS)
-        wr.put(MealCOLS[MealCOLMEALID], mealvo.getMealId())
-        wr.put(MealCOLS[MealCOLMEALNAME], mealvo.getMealName())
-        wr.put(MealCOLS[MealCOLCALORIES], mealvo.getCalories())
-        wr.put(MealCOLS[MealCOLDATES], mealvo.getDates())
-        wr.put(MealCOLS[MealCOLIMAGES], mealvo.getImages())
-        wr.put(MealCOLS[MealCOLANALYSIS], mealvo.getAnalysis())
-        wr.put(MealCOLS[MealCOLUSERNAME], mealvo.getUserName())
         val args = arrayOf(mealvo.getMealId())
-        database.update(MealTABLENAME, wr, "mealId =?", args)
+        database.update(MealTABLENAME,  putData(mealvo), "mealId =?", args)
     }
 
     fun deleteMeal(value: String) {
@@ -299,5 +219,31 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
         wr.put(MealCOLS.get(MealCOLUSERNAME), "NULL")
         val args = arrayOf(mealId)
         database.update(MealTABLENAME, wr, mealId, args)
+    }
+
+    private fun setData(cursor: Cursor): MealVO {
+        val mealvo = MealVO()
+        mealvo.setMealId(cursor.getString(MealCOLMEALID))
+        mealvo.setMealName(cursor.getString(MealCOLMEALNAME))
+        mealvo.setCalories(cursor.getDouble(MealCOLCALORIES))
+        mealvo.setDates(cursor.getString(MealCOLDATES))
+        mealvo.setImages(cursor.getString(MealCOLIMAGES))
+        mealvo.setAnalysis(cursor.getString(MealCOLANALYSIS))
+        mealvo.setUserName(cursor.getString(MealCOLUSERNAME))
+
+        return mealvo
+    }
+
+    private fun putData(mealvo: MealVO): ContentValues {
+        val wr = ContentValues(MealNUMBERCOLS)
+        wr.put(MealCOLS[MealCOLMEALID], mealvo.getMealId())
+        wr.put(MealCOLS[MealCOLMEALNAME], mealvo.getMealName())
+        wr.put(MealCOLS[MealCOLCALORIES], mealvo.getCalories())
+        wr.put(MealCOLS[MealCOLDATES], mealvo.getDates())
+        wr.put(MealCOLS[MealCOLIMAGES], mealvo.getImages())
+        wr.put(MealCOLS[MealCOLANALYSIS], mealvo.getAnalysis())
+        wr.put(MealCOLS[MealCOLUSERNAME], mealvo.getUserName())
+        val args = arrayOf(mealvo.getMealId())
+        return wr
     }
 }
