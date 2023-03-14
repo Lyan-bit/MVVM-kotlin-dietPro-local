@@ -243,7 +243,6 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
         wr.put(MealCOLS[MealCOLIMAGES], mealvo.getImages())
         wr.put(MealCOLS[MealCOLANALYSIS], mealvo.getAnalysis())
         wr.put(MealCOLS[MealCOLUSERNAME], mealvo.getUserName())
-        val args = arrayOf(mealvo.getMealId())
         return wr
     }
 }
