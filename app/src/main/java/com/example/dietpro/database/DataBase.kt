@@ -209,14 +209,14 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
     fun addUsereatsMeal(userName: String, mealId: String) {
         database = writableDatabase
         val wr = ContentValues(1)
-        wr.put(MealCOLS.get(MealCOLUSERNAME), userName)
+        wr.put(MealCOLS[(MealCOLUSERNAME], userName)
         val args = arrayOf(mealId)
         database.update(MealTABLENAME, wr, mealId, args)
     }
     fun removeUsereatsMeal(userName: String, mealId: String) {
         database = writableDatabase
         val wr = ContentValues(1)
-        wr.put(MealCOLS.get(MealCOLUSERNAME), "NULL")
+        wr.put(MealCOLS[MealCOLUSERNAME], "NULL")
         val args = arrayOf(mealId)
         database.update(MealTABLENAME, wr, mealId, args)
     }
