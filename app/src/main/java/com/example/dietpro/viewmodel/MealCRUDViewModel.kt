@@ -32,14 +32,14 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
         val res: List<MealVO> = dbm.listMeal()
         val vo: ArrayList<Meal> = ArrayList()
         for (meal in res) {
-            val itemx = Meal.createByPKMeal(meal.getMealId())
-            itemx.mealId = meal.getMealId()
-            itemx.mealName = meal.getMealName()
-            itemx.userName = meal.getUserName()
-            itemx.dates = meal.getDates()
-            itemx.calories = meal.getCalories()
-            itemx.analysis = meal.getAnalysis()
-            itemx.images = meal.getImages()
+            val itemx = Meal.createByPKMeal(meal.mealId)
+            itemx.mealId = meal.mealId
+            itemx.mealName = meal.mealName
+            itemx.userName = meal.userName
+            itemx.dates = meal.dates
+            itemx.calories = meal.calories
+            itemx.analysis = meal.analysis
+            itemx.images = meal.images
             itemx
             vo.add(itemx)
         }
@@ -53,13 +53,13 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
         } else {
             val vo: MealVO = res[0]
             val itemx = Meal.createByPKMeal(value)
-            itemx.mealId = vo.getMealId()
-            itemx.mealName = vo.getMealName()
-            itemx.userName = vo.getUserName()
-            itemx.calories = vo.getCalories()
-            itemx.analysis = vo.getAnalysis()
-            itemx.dates = vo.getDates()
-            itemx.images = vo.getImages()
+            itemx.mealId = vo.mealId
+            itemx.mealName = vo.mealName
+            itemx.userName = vo.userName
+            itemx.calories = vo.calories
+            itemx.analysis = vo.analysis
+            itemx.dates = vo.dates
+            itemx.images = vo.images
             itemx
         }
     }
@@ -72,7 +72,7 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
         currentMeals = dbm.listMeal()
         val res: ArrayList<String> = ArrayList()
         for (meal in currentMeals.indices) {
-            res.add(currentMeals[meal].getMealId())
+            res.add(currentMeals[meal].mealId)
         }
         return res
     }
@@ -81,7 +81,7 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
         currentMeals = dbm.listMeal()
         val res: ArrayList<String> = ArrayList()
         for (meal in currentMeals.indices) {
-            res.add(currentMeals[meal].getMealName())
+            res.add(currentMeals[meal].mealName)
         }
         return res
     }
@@ -90,7 +90,7 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
         currentMeals = dbm.listMeal()
         val res: ArrayList<String> = ArrayList()
         for (meal in currentMeals.indices) {
-            res.add(currentMeals[meal].getDates())
+            res.add(currentMeals[meal].dates)
         }
         return res
     }
@@ -99,7 +99,7 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
         currentMeals = dbm.listMeal()
         val res: ArrayList<String> = ArrayList()
         for (meal in currentMeals.indices) {
-            res.add(currentMeals[meal].getUserName())
+            res.add(currentMeals[meal].userName)
         }
         return res
     }
@@ -108,7 +108,7 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
         currentMeals = dbm.listMeal()
         val res: ArrayList<String> = ArrayList()
         for (meal in currentMeals.indices) {
-            res.add(currentMeals[meal].getCalories().toString())
+            res.add(currentMeals[meal].calories.toString())
         }
         return res
     }
@@ -117,7 +117,7 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
         currentMeals = dbm.listMeal()
         val res: ArrayList<String> = ArrayList()
         for (meal in currentMeals.indices) {
-            res.add(currentMeals[meal].getAnalysis())
+            res.add(currentMeals[meal].analysis)
         }
         return res
     }
@@ -126,7 +126,7 @@ class MealCRUDViewModel constructor(context: Context): ViewModel() {
         currentMeals = dbm.listMeal()
         val res: ArrayList<String> = ArrayList()
         for (meal in currentMeals.indices) {
-            res.add(currentMeals[meal].getImages())
+            res.add(currentMeals[meal].images)
         }
         return res
     }
