@@ -184,13 +184,13 @@ lateinit var buttonCapture: Button
 			Toast.makeText(myContext, "Errors: " + mealBean.errors(), Toast.LENGTH_LONG).show()
 		} else {
 			val selectedItem = model.searchByMealid(mealIdData)
-				mealIdTextField.setText(selectedItem[0].getMealId().toString())
-				mealNameTextField.setText(selectedItem[0].getMealName().toString())
-				caloriesTextField.setText(selectedItem[0].getCalories().toString())
-				datesTextField.setText(selectedItem[0].getDates().toString())
+				mealIdTextField.setText(selectedItem[0].mealId.toString())
+				mealNameTextField.setText(selectedItem[0].mealName.toString())
+				caloriesTextField.setText(selectedItem[0].calories.toString())
+				datesTextField.setText(selectedItem[0].dates.toString())
     dimages = try {
 			                // convert base64 to bitmap android
-			                val decodedString: ByteArray = Base64.decode(selectedItem[0].getImages(), Base64.DEFAULT)
+			                val decodedString: ByteArray = Base64.decode(selectedItem[0].images, Base64.DEFAULT)
 			                val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
 			                decodedByte
 			            }
@@ -200,8 +200,8 @@ lateinit var buttonCapture: Button
 			            }
 			viewLifecycleOwner.lifecycleScope.launchWhenStarted {
 			    imagesImageView.setImageBitmap(dimages)}
-				analysisTextView.text = selectedItem[0].getAnalysis().toString()
-				userNameTextField.setText(selectedItem[0].getUserName().toString())
+				analysisTextView.text = selectedItem[0].analysis.toString()
+				userNameTextField.setText(selectedItem[0].userName.toString())
 				Toast.makeText(myContext, "search Meal is done!", Toast.LENGTH_LONG).show()
 		}
 	}
