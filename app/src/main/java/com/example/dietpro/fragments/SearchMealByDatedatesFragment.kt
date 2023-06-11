@@ -128,13 +128,13 @@ class SearchMealByDatedatesFragment : Fragment(), View.OnClickListener, AdapterV
 			Toast.makeText(myContext, "Errors: " + mealBean.errors(), Toast.LENGTH_LONG).show()
 		} else {
 				val selectedItem = model.searchByMealdates(datesData)
-				mealIdTextView.text = selectedItem[0].getMealId().toString()
-				mealNameTextView.text = selectedItem[0].getMealId().toString()
-				caloriesTextView.text = selectedItem[0].getCalories().toString()
-				datesTextView.text = selectedItem[0].getDates().toString()
+				mealIdTextView.text = selectedItem[0].mealId.toString()
+				mealNameTextView.text = selectedItem[0].mealName.toString()
+				caloriesTextView.text = selectedItem[0].calories.toString()
+				datesTextView.text = selectedItem[0].dates.toString()
       dimages = try {
 				// convert base64 to bitmap android
-				val decodedString: ByteArray = Base64.decode(selectedItem[0].getImages(), Base64.DEFAULT)
+				val decodedString: ByteArray = Base64.decode(selectedItem[0].images, Base64.DEFAULT)
 				val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
 					decodedByte
 				}
@@ -145,8 +145,8 @@ class SearchMealByDatedatesFragment : Fragment(), View.OnClickListener, AdapterV
 				viewLifecycleOwner.lifecycleScope.launchWhenStarted {
 					imagesImageView.setImageBitmap(dimages)
 				}
-				analysisTextView.text = selectedItem[0].getAnalysis().toString()
-				userNameTextView.text = selectedItem[0].getUserName().toString()
+				analysisTextView.text = selectedItem[0].analysis.toString()
+				userNameTextView.text = selectedItem[0].userName.toString()
 				Toast.makeText(myContext, "search Meal done!", Toast.LENGTH_LONG).show()
 				
 		}
