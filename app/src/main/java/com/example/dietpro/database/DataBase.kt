@@ -195,7 +195,7 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
     fun editMeal(mealvo: MealVO) {
         database = writableDatabase
-        val args = arrayOf(mealvo.getMealId())
+        val args = arrayOf(mealvo.mealId)
         database.update(MealTABLENAME,  putData(mealvo), "mealId =?", args)
     }
 
@@ -209,7 +209,7 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
     fun addUsereatsMeal(userName: String, mealId: String) {
         database = writableDatabase
         val wr = ContentValues(1)
-        wr.put(MealCOLS[(MealCOLUSERNAME], userName)
+        wr.put(MealCOLS[MealCOLUSERNAME], userName)
         val args = arrayOf(mealId)
         database.update(MealTABLENAME, wr, mealId, args)
     }
@@ -223,26 +223,26 @@ class DataBase  (context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
     private fun setData(cursor: Cursor): MealVO {
         val mealvo = MealVO()
-        mealvo.setMealId(cursor.getString(MealCOLMEALID))
-        mealvo.setMealName(cursor.getString(MealCOLMEALNAME))
-        mealvo.setCalories(cursor.getDouble(MealCOLCALORIES))
-        mealvo.setDates(cursor.getString(MealCOLDATES))
-        mealvo.setImages(cursor.getString(MealCOLIMAGES))
-        mealvo.setAnalysis(cursor.getString(MealCOLANALYSIS))
-        mealvo.setUserName(cursor.getString(MealCOLUSERNAME))
+        mealvo.mealId = cursor.getString(MealCOLMEALID)
+        mealvo.mealName = cursor.getString(MealCOLMEALNAME)
+        mealvo.calories = cursor.getDouble(MealCOLCALORIES)
+        mealvo.dates = cursor.getString(MealCOLDATES)
+        mealvo.images = cursor.getString(MealCOLIMAGES)
+        mealvo.analysis = cursor.getString(MealCOLANALYSIS)
+        mealvo.userName = cursor.getString(MealCOLUSERNAME)
 
         return mealvo
     }
 
     private fun putData(mealvo: MealVO): ContentValues {
         val wr = ContentValues(MealNUMBERCOLS)
-        wr.put(MealCOLS[MealCOLMEALID], mealvo.getMealId())
-        wr.put(MealCOLS[MealCOLMEALNAME], mealvo.getMealName())
-        wr.put(MealCOLS[MealCOLCALORIES], mealvo.getCalories())
-        wr.put(MealCOLS[MealCOLDATES], mealvo.getDates())
-        wr.put(MealCOLS[MealCOLIMAGES], mealvo.getImages())
-        wr.put(MealCOLS[MealCOLANALYSIS], mealvo.getAnalysis())
-        wr.put(MealCOLS[MealCOLUSERNAME], mealvo.getUserName())
+        wr.put(MealCOLS[MealCOLMEALID], mealvo.mealId)
+        wr.put(MealCOLS[MealCOLMEALNAME], mealvo.mealName)
+        wr.put(MealCOLS[MealCOLCALORIES], mealvo.calories)
+        wr.put(MealCOLS[MealCOLDATES], mealvo.dates)
+        wr.put(MealCOLS[MealCOLIMAGES], mealvo.images)
+        wr.put(MealCOLS[MealCOLANALYSIS], mealvo.analysis)
+        wr.put(MealCOLS[MealCOLUSERNAME], mealvo.userName)
         return wr
     }
 }
